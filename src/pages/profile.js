@@ -12,8 +12,14 @@ const ProfilePage = () => {
 
   useEffect(() => {
     if (status === "authenticated" && session?.user?.id) {
+      // Fetch profile data from the database
       fetch(`/api/getProfile?userId=${session.user.id}`)
-        .then((res) => res.json())
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("Failed to fetch profile data");
+          }
+          return res.json();
+        })
         .then((data) => {
           setProfileData(data);
           setLoading(false);
@@ -29,35 +35,38 @@ const ProfilePage = () => {
 
   const handleUpload = async (event) => {
     event.preventDefault();
-  
+
     if (!file) {
-      alert('Please choose a file to upload');
+      alert("Please choose a file to upload");
       return;
     }
-  
+
     // Get presigned URL from the backend
-    const response = await fetch('/api/getPresignedUrl', {
-      method: 'POST',
+    const response = await fetch("/api/getPresignedUrl", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({ fileName: file.name }),
     });
-  
+
     const { url, fileName } = await response.json();
-  
+
     // Upload file directly to S3 using the presigned URL
     const uploadResponse = await fetch(url, {
-      method: 'PUT',
+      method: "PUT",
       headers: {
-        'Content-Type': file.type,
+        "Content-Type": file.type,
       },
       body: file,
     });
-  
+
     if (uploadResponse.ok) {
-      console.log('File uploaded successfully');
+      console.log("File uploaded successfully");
       // Optionally, you can update the list of images after successful upload
       setImages((prevImages) => [...prevImages, fileName]);
     } else {
-      console.error('Upload failed');
+      console.error("Upload failed");
     }
   };
 
@@ -75,7 +84,7 @@ const ProfilePage = () => {
 
   return (
     <div className="profile-container">
-      <h2>Welcome, {session.user.firstName}!</h2>
+      <h2>Welcome, {profileData?.firstName || "User"}!</h2>
       <div className="profile-content">
         <div className="profile-info">
           <p><strong>First Name:</strong> {profileData?.firstName || "Not provided"}</p>
@@ -91,6 +100,7 @@ const ProfilePage = () => {
         <div className="image-upload-container">
           <h3>Upload Your Photos</h3>
           <UploadImageForm setFile={setFile} />
+          <button onClick={handleUpload} className="upload-button">Upload</button>
         </div>
 
         <div className="uploaded-images">
