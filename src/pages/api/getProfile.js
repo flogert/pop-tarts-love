@@ -12,18 +12,15 @@ export default async function handler(req, res) {
       }
 
       const user = await prisma.user.findUnique({
-        where: { id: req.query.userId },
+        where: { id: parseInt(userId, 10) },
         select: {
-          age: true,
-          gender: true,
           firstName: true,
           lastName: true,
+          age: true,
           location: true,
           education: true,
           maritalStatus: true,
           bio: true,
-          interests: true,
-          newsletter: true,
         },
       });
 
@@ -38,6 +35,6 @@ export default async function handler(req, res) {
     }
   } else {
     res.setHeader("Allow", ["GET"]);
-    res.status(405).json({ message: `Method ${req.method} not allowed` });
+    res.status(405).json({ error: "Method Not Allowed" });
   }
 }
