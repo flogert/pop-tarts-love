@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
-import UploadImageForm from "@/components/uploadImageForm";
+import UploadImageForm from "@/components/UploadImageForm";
 
 const ProfilePage = () => {
   const { data: session, status } = useSession();
