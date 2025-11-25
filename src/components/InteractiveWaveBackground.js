@@ -193,6 +193,7 @@ export default function InteractiveWaveBackground({
     pathsRef.current.forEach((path, i) => {
       const color = waveColors ? waveColors[i % waveColors.length] : strokeColor;
       path.setAttribute("stroke", color);
+      path.style.filter = `drop-shadow(0 0 2px ${color})`;
     });
     drawLines();
   }, [strokeColor, waveColors]);
@@ -261,6 +262,7 @@ export default function InteractiveWaveBackground({
       path.setAttribute("fill", "none");
       const color = waveColors ? waveColors[i % waveColors.length] : strokeColor;
       path.setAttribute("stroke", color);
+      path.style.filter = `drop-shadow(0 0 2px ${color})`;
       path.setAttribute("stroke-width", "1");
       svgRef.current.appendChild(path);
       pathsRef.current.push(path);

@@ -7,6 +7,12 @@ const IndexPage = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4 relative overflow-hidden z-0">
       <InteractiveWaveBackground waveColors={['#9333ea', '#ec4899']} />
+      
+      {/* Center Blur Effect */}
+      <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center">
+          <div className="w-full h-full backdrop-blur-[2px] [mask-image:radial-gradient(circle_at_center,black_0%,transparent_70%)]"></div>
+      </div>
+
       {/* Main Title */}
       <motion.h1 
         initial={{ opacity: 0, y: -20 }}
@@ -25,7 +31,7 @@ const IndexPage = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           src="logo.webp"
           alt="Pop Tarts Love"
-          className="w-full max-w-xs md:max-w-sm h-auto mb-6 hover:scale-105 transition-transform duration-300"
+          className="w-full max-w-xs md:max-w-sm h-auto mb-6 hover:scale-105 transition-transform duration-300 drop-shadow-2xl"
         />
       </Link>
 
