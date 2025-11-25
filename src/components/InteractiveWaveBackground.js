@@ -233,11 +233,11 @@ export default function InteractiveWaveBackground({
     });
     pathsRef.current = [];
 
-    // Further increase gaps for even fewer lines/points
-    const baseSpacing = 96;
-    const xGap = baseSpacing + (1 - lineSpacing) * 159; // Range: 96-255
-    const baseYGap = 48;
-    const yGap = baseYGap + (1 - resolution) * 20; // Range: 48-68
+    // Denser lines for Framer-like look
+    const baseSpacing = 15;
+    const xGap = baseSpacing + (1 - lineSpacing) * 32; // Range: 8-40
+    const baseYGap = 4;
+    const yGap = baseYGap + (1 - resolution) * 8; // Range: 4-12
 
     const oWidth = width + 200;
     const oHeight = height + 30;
@@ -263,8 +263,8 @@ export default function InteractiveWaveBackground({
       path.setAttribute("fill", "none");
       const color = waveColors ? waveColors[i % waveColors.length] : strokeColor;
       path.setAttribute("stroke", color);
-      path.style.filter = `drop-shadow(0 0 2px ${color})`;
-      path.setAttribute("stroke-width", "1");
+      // Remove drop-shadow for performance
+      path.setAttribute("stroke-width", "1.5");
       svgRef.current.appendChild(path);
       pathsRef.current.push(path);
       linesRef.current.push(points);
