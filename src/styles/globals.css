@@ -48,79 +48,18 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ... existing code ... */
 
-/* Input field styling */
-input[type="email"],
-input[type="password"],
-input[type="text"],
-input[type="number"],
-textarea,
-select {
-  background-color: var(--input-bg); /* Light grey background */
-  border: 2px solid var(--input-border); /* Light grey border */
-  padding: 12px 20px;
-  font-size: 1rem;
-  border-radius: 9999px; /* Round corners */
-  width: 100%;
-  margin-bottom: 1.5rem; /* Spacing between fields */
-  transition: all 0.3s ease;
-  box-sizing: border-box; /* Prevents padding from affecting width */
-}
+/* ... existing code ... */
 
-input[type="email"]:focus,
-input[type="password"]:focus,
-input[type="text"]:focus,
-input[type="number"]:focus,
-textarea:focus,
-select:focus {
-  border-color: var(--focus-border); /* Purple border on focus */
-  outline: none; /* Remove default outline */
-  background-color: #fff; /* Light background color when focused */
-}
 
-input[type="email"]:hover,
-input[type="password"]:hover,
-input[type="text"]:hover,
-input[type="number"]:hover,
-textarea:hover,
-select:hover {
-  border-color: var(--input-border-hover); /* Slightly darker purple border on hover */
-}
+
+
+
+/* Profile Page Container */
+/* ... existing code ... */
 
 /* ... existing code ... */
 
-/* Main Container Styles */
-.container, .profile-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  min-height: 100vh; /* Full height */
-  padding: 20px; /* Padding for spacing */
-  /* background: var(--gradient-bg); Removed to avoid double gradient */
-}
 
-/* Specific styling for forms and buttons */
-form {
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
-  background-color: #fff; /* White background for forms */
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.6); /* Light shadow */
-}
-
-@media (min-width: 768px) {
-  form {
-    padding: 2rem;
-  }
-}
-
-label {
-  margin-right: 1rem;
-  color: #7c3aed;
-}
 
 /* Profile Page Container */
 .profile-container {
@@ -228,50 +167,7 @@ label {
 }
 
 /* Buttons Section */
-.form-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
-}
-
-@media (min-width: 768px) {
-  .form-actions {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-}
-
-.submit-btn {
-  padding: 0.75rem 2rem;
-  background-color: #6b4eff;
-  color: white;
-  font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  width: 100%;
-}
-
-@media (min-width: 768px) {
-  .submit-btn {
-    width: auto;
-  }
-}
-
-.submit-btn:hover {
-  background-color: #5a3be1;
-}
-
-.cancel-btn {
-  font-size: 1rem;
-  color: #007bff;
-  cursor: pointer;
-}
-
-.cancel-btn:hover {
-  text-decoration: underline;
-}
+/* Removed to use Tailwind and Framer Motion directly in components */
 
 .profile-content {
   display: flex;

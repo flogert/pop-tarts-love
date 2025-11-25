@@ -70,21 +70,21 @@ const ProfilePage = () => {
     }
   };
 
-  if (loading) return <div className="loading">Loading...</div>;
+  if (loading) return <div className="text-center text-xl mt-12">Loading...</div>;
 
   if (!session)
     return (
-      <div className="login-container">
-        <p>Please log in to view your profile.</p>
+      <div className="flex flex-col items-center justify-center min-h-screen gap-4">
+        <p className="text-xl">Please log in to view your profile.</p>
         <Link href="/login">
-          <button className="login-button">Login</button>
+          <button className="bg-purple-600 text-white font-bold py-2 px-6 rounded-full hover:bg-purple-700 transition-colors">Login</button>
         </Link>
       </div>
     );
 
   return (
     <div className="profile-container">
-      <h2>Welcome, {profileData?.firstName || "User"}!</h2>
+      <h2 className="profile-title">Welcome, {profileData?.firstName || "User"}!</h2>
       <div className="profile-content">
         <div className="profile-info">
           <p><strong>First Name:</strong> {profileData?.firstName || "Not provided"}</p>
@@ -100,7 +100,12 @@ const ProfilePage = () => {
         <div className="image-upload-container">
           <h3>Upload Your Photos</h3>
           <UploadImageForm setFile={setFile} />
-          <button onClick={handleUpload} className="btn-signup" style={{ fontSize: '1rem', padding: '0.5rem 1.5rem', marginTop: '1rem' }}>Upload</button>
+          <button 
+            onClick={handleUpload} 
+            className="bg-purple-600 text-white font-bold py-2 px-6 rounded-full hover:bg-purple-700 transition-colors mt-4"
+          >
+            Upload
+          </button>
           
           <div className="uploaded-images" style={{ marginTop: '20px' }}>
             <h3>Your Uploaded Images</h3>
@@ -122,12 +127,12 @@ const ProfilePage = () => {
         </div>
       </div>
 
-      <div className="profile-actions">
+      <div className="profile-actions flex gap-4 mt-8">
         <Link href="/">
-          <button className="home-button">Home</button>
+          <button className="bg-blue-500 text-white font-bold py-2 px-6 rounded-full hover:bg-blue-600 transition-colors">Home</button>
         </Link>
         <Link href="/match">
-          <button className="home-button">Match</button>
+          <button className="bg-pink-500 text-white font-bold py-2 px-6 rounded-full hover:bg-pink-600 transition-colors">Match</button>
         </Link>
       </div>
     </div>
