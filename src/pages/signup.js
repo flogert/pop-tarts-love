@@ -66,27 +66,27 @@ const SignupPage = () => {
     }
   };
 
-  const inputClasses = "w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-200";
+  const inputClasses = "w-full px-3 py-2 rounded-lg bg-gray-50 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-200 text-sm";
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4 py-12">
+    <div className="min-h-screen flex flex-col items-center justify-center p-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full max-w-lg"
+        className="w-full max-w-4xl"
       >
-        <h2 className="mb-6 text-3xl font-bold text-center text-purple-800 font-['Agbalumo']">Dating Account Signup</h2>
+        <h2 className="mb-4 text-2xl md:text-3xl font-bold text-center text-purple-800 font-['Agbalumo']">Dating Account Signup</h2>
 
-        {errorMessage && <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">{errorMessage}</div>}
-        {successMessage && <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">{successMessage}</div>}
+        {errorMessage && <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded relative mb-4 text-sm" role="alert">{errorMessage}</div>}
+        {successMessage && <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-2 rounded relative mb-4 text-sm" role="alert">{successMessage}</div>}
 
-        <form onSubmit={handleSubmit} className="bg-white p-8 rounded-xl shadow-2xl">
+        <form onSubmit={handleSubmit} className="bg-white p-6 rounded-xl shadow-2xl grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Email Input */}
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">Email Address</label>
+          <div>
+            <label className="block text-gray-700 text-xs font-bold mb-1">Email Address</label>
             <motion.input
-              whileFocus={{ scale: 1.02, borderColor: "#8A2BE2" }}
+              whileFocus={{ scale: 1.01, borderColor: "#8A2BE2" }}
               type="email"
               name="email"
               value={formData.email}
@@ -98,10 +98,10 @@ const SignupPage = () => {
           </div>
 
           {/* Password Input */}
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">Password</label>
+          <div>
+            <label className="block text-gray-700 text-xs font-bold mb-1">Password</label>
             <motion.input
-              whileFocus={{ scale: 1.02, borderColor: "#8A2BE2" }}
+              whileFocus={{ scale: 1.01, borderColor: "#8A2BE2" }}
               type="password"
               name="password"
               value={formData.password}
@@ -112,55 +112,53 @@ const SignupPage = () => {
             />
           </div>
 
-          <div className="flex flex-wrap -mx-3 mb-4">
-            <div className="w-full md:w-1/2 px-3 mb-4 md:mb-0">
-              <label className="block text-gray-700 text-sm font-bold mb-2">First Name</label>
+          <div>
+              <label className="block text-gray-700 text-xs font-bold mb-1">First Name</label>
               <motion.input
-                whileFocus={{ scale: 1.02, borderColor: "#8A2BE2" }}
+                whileFocus={{ scale: 1.01, borderColor: "#8A2BE2" }}
                 type="text"
                 name="firstName"
                 value={formData.firstName}
                 onChange={handleChange}
                 required
-                placeholder="Enter your first name"
+                placeholder="First name"
                 className={inputClasses}
               />
-            </div>
-            <div className="w-full md:w-1/2 px-3">
-              <label className="block text-gray-700 text-sm font-bold mb-2">Last Name</label>
+          </div>
+          <div>
+              <label className="block text-gray-700 text-xs font-bold mb-1">Last Name</label>
               <motion.input
-                whileFocus={{ scale: 1.02, borderColor: "#8A2BE2" }}
+                whileFocus={{ scale: 1.01, borderColor: "#8A2BE2" }}
                 type="text"
                 name="lastName"
                 value={formData.lastName}
                 onChange={handleChange}
                 required
-                placeholder="Enter your last name"
+                placeholder="Last name"
                 className={inputClasses}
               />
-            </div>
           </div>
 
           {/* Age Input */}
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">Age</label>
+          <div>
+            <label className="block text-gray-700 text-xs font-bold mb-1">Age</label>
             <motion.input
-              whileFocus={{ scale: 1.02, borderColor: "#8A2BE2" }}
+              whileFocus={{ scale: 1.01, borderColor: "#8A2BE2" }}
               type="number"
               name="age"
               value={formData.age}
               onChange={handleChange}
               required
               min="18"
-              placeholder="Enter your age"
+              placeholder="Age"
               className={inputClasses}
             />
           </div>
 
           {/* Gender Radio Buttons */}
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">Gender</label>
-            <div className="flex gap-4">
+          <div>
+            <label className="block text-gray-700 text-xs font-bold mb-1">Gender</label>
+            <div className="flex gap-4 items-center h-[38px]">
               {["Male", "Female", "Other"].map((gender) => (
                 <label key={gender} className="inline-flex items-center cursor-pointer">
                   <input
@@ -171,38 +169,38 @@ const SignupPage = () => {
                     onChange={handleChange}
                     className="form-radio text-purple-600 focus:ring-purple-500 h-4 w-4"
                   />
-                  <span className="ml-2 text-gray-700">{gender}</span>
+                  <span className="ml-1 text-gray-700 text-sm">{gender}</span>
                 </label>
               ))}
             </div>
           </div>
 
           {/* Location Input */}
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">Location</label>
+          <div>
+            <label className="block text-gray-700 text-xs font-bold mb-1">Location</label>
             <motion.input
-              whileFocus={{ scale: 1.02, borderColor: "#8A2BE2" }}
+              whileFocus={{ scale: 1.01, borderColor: "#8A2BE2" }}
               type="text"
               name="location"
               value={formData.location}
               onChange={handleChange}
               required
-              placeholder="Enter your city or country"
+              placeholder="City/Country"
               className={inputClasses}
             />
           </div>
 
           {/* Education Dropdown */}
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">Education</label>
+          <div>
+            <label className="block text-gray-700 text-xs font-bold mb-1">Education</label>
             <motion.select
-              whileFocus={{ scale: 1.02, borderColor: "#8A2BE2" }}
+              whileFocus={{ scale: 1.01, borderColor: "#8A2BE2" }}
               name="education"
               value={formData.education}
               onChange={handleChange}
               className={inputClasses}
             >
-              <option value="">Select your education level</option>
+              <option value="">Select education</option>
               <option value="High School">High School</option>
               <option value="Bachelor's">Bachelors</option>
               <option value="Master's">Masters</option>
@@ -211,10 +209,10 @@ const SignupPage = () => {
           </div>
 
           {/* Marital Status Dropdown */}
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">Looking For</label>
+          <div className="md:col-span-2">
+            <label className="block text-gray-700 text-xs font-bold mb-1">Looking For</label>
             <motion.select
-              whileFocus={{ scale: 1.02, borderColor: "#8A2BE2" }}
+              whileFocus={{ scale: 1.01, borderColor: "#8A2BE2" }}
               name="maritalStatus"
               value={formData.maritalStatus}
               onChange={handleChange}
@@ -228,22 +226,22 @@ const SignupPage = () => {
           </div>
 
           {/* Bio Textarea */}
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">Tell us about yourself</label>
+          <div className="md:col-span-2">
+            <label className="block text-gray-700 text-xs font-bold mb-1">Tell us about yourself</label>
             <motion.textarea
-              whileFocus={{ scale: 1.02, borderColor: "#8A2BE2" }}
+              whileFocus={{ scale: 1.01, borderColor: "#8A2BE2" }}
               name="bio"
               value={formData.bio}
               onChange={handleChange}
-              rows="4"
+              rows="2"
               placeholder="Write something about yourself..."
               className={inputClasses}
             />
           </div>
 
           {/* Interests Checkboxes */}
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">Interests</label>
+          <div className="md:col-span-2">
+            <label className="block text-gray-700 text-xs font-bold mb-1">Interests</label>
             <div className="flex flex-wrap gap-4">
               {["Music", "Sports", "Travel", "Gaming"].map((interest) => (
                 <label key={interest} className="inline-flex items-center cursor-pointer">
@@ -255,14 +253,14 @@ const SignupPage = () => {
                     onChange={handleChange}
                     className="form-checkbox text-purple-600 focus:ring-purple-500 h-4 w-4 rounded"
                   />
-                  <span className="ml-2 text-gray-700">{interest}</span>
+                  <span className="ml-1 text-gray-700 text-sm">{interest}</span>
                 </label>
               ))}
             </div>
           </div>
 
           {/* Newsletter Subscription */}
-          <div className="mb-6">
+          <div className="md:col-span-2">
             <label className="inline-flex items-center cursor-pointer">
               <input
                 type="checkbox"
@@ -271,26 +269,26 @@ const SignupPage = () => {
                 onChange={handleChange}
                 className="form-checkbox text-purple-600 focus:ring-purple-500 h-4 w-4 rounded"
               />
-              <span className="ml-2 text-gray-700">Subscribe to our dating tips newsletter</span>
+              <span className="ml-2 text-gray-700 text-sm">Subscribe to our dating tips newsletter</span>
             </label>
           </div>
 
           {/* Buttons */}
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="md:col-span-2 flex flex-col md:flex-row justify-between items-center gap-4 mt-2">
             <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               type="submit"
-              className="w-full md:w-auto bg-purple-600 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:bg-purple-700 transition-colors duration-200"
+              className="w-full md:w-auto bg-purple-600 text-white font-bold py-2 px-6 rounded-full shadow-lg hover:bg-purple-700 transition-colors duration-200 text-sm"
             >
               Sign Up
             </motion.button>
             <Link href="/" className="w-full md:w-auto">
               <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 type="button"
-                className="w-full md:w-auto bg-transparent border-2 border-purple-600 text-purple-600 font-bold py-3 px-6 rounded-full hover:bg-purple-50 transition-colors duration-200"
+                className="w-full md:w-auto bg-transparent border-2 border-purple-600 text-purple-600 font-bold py-2 px-6 rounded-full hover:bg-purple-50 transition-colors duration-200 text-sm"
               >
                 Cancel
               </motion.button>
