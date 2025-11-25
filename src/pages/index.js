@@ -15,12 +15,12 @@ const IndexPage = () => {
           src="logo.webp" // Replace this with your actual image URL
           alt="Pop Tarts Love"
           className='logo'
-          style={{ width: '450px', height: '450px' }}
+          style={{ width: '100%', maxWidth: '450px', height: 'auto' }}
         />
       </Link>
 
       {/* Description */}
-      <h3 className='start'>
+      <h3 className='start' style={{ textAlign: 'center', padding: '0 1rem' }}>
         Find your perfect match based on your love for Pop Tart flavors! 🍓🍫
         <p>Start your journey today and discover someone who shares your passion
         for sweet treats.</p>
@@ -28,13 +28,13 @@ const IndexPage = () => {
 
 
       {/* Action Buttons */}
-      <div>
-        <Link href="/signup">
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', maxWidth: '400px' }}>
+        <Link href="/signup" style={{ width: '100%' }}>
           <button className="btn btn-signup">
             Get Started
           </button>
         </Link>
-        <Link href="/login">
+        <Link href="/login" style={{ width: '100%' }}>
           <button className="btn btn-login">
             Log In
           </button>

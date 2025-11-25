@@ -76,10 +76,10 @@ const SignupPage = () => {
       {errorMessage && <div className="error-message">{errorMessage}</div>} {/* Error Message */}
       {successMessage && <div className="success-message">{successMessage}</div>} {/* Success Message */}
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="w-full max-w-lg">
         {/* Email Input */}
-        <div>
-          <label>Email Address</label>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">Email Address</label>
           <input
             type="email"
             name="email"
@@ -87,12 +87,13 @@ const SignupPage = () => {
             onChange={handleChange}
             required
             placeholder="Enter your email"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
 
         {/* Password Input */}
-        <div>
-          <label>Password</label>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">Password</label>
           <input
             type="password"
             name="password"
@@ -100,36 +101,40 @@ const SignupPage = () => {
             onChange={handleChange}
             required
             placeholder="Enter your password"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
 
-        <div>
-          <label>First Name</label>
-          <input
-            type="text"
-            name="firstName"
-            value={formData.firstName}
-            onChange={handleChange}
-            required
-            placeholder="Enter your first name"
-          />
-        </div>
-
-        <div>
-          <label>Last Name</label>
-          <input
-            type="text"
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleChange}
-            required
-            placeholder="Enter your last name"
-          />
+        <div className="flex flex-wrap -mx-3 mb-4">
+          <div className="w-full md:w-1/2 px-3 mb-4 md:mb-0">
+            <label className="block text-gray-700 text-sm font-bold mb-2">First Name</label>
+            <input
+              type="text"
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleChange}
+              required
+              placeholder="Enter your first name"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <div className="w-full md:w-1/2 px-3">
+            <label className="block text-gray-700 text-sm font-bold mb-2">Last Name</label>
+            <input
+              type="text"
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleChange}
+              required
+              placeholder="Enter your last name"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
         </div>
 
         {/* Age Input */}
-        <div>
-          <label>Age</label>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">Age</label>
           <input
             type="number"
             name="age"
@@ -138,47 +143,53 @@ const SignupPage = () => {
             required
             min="18"
             placeholder="Enter your age"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
 
         {/* Gender Radio Buttons */}
-        <div>
-          <label>Gender</label>
-          <label>
-            <input
-              type="radio"
-              name="gender"
-              value="Male"
-              checked={formData.gender === "Male"}
-              onChange={handleChange}
-            />
-            Male
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="gender"
-              value="Female"
-              checked={formData.gender === "Female"}
-              onChange={handleChange}
-            />
-            Female
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="gender"
-              value="Other"
-              checked={formData.gender === "Other"}
-              onChange={handleChange}
-            />
-            Other
-          </label>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">Gender</label>
+          <div className="flex gap-4">
+            <label className="inline-flex items-center">
+              <input
+                type="radio"
+                name="gender"
+                value="Male"
+                checked={formData.gender === "Male"}
+                onChange={handleChange}
+                className="form-radio"
+              />
+              <span className="ml-2">Male</span>
+            </label>
+            <label className="inline-flex items-center">
+              <input
+                type="radio"
+                name="gender"
+                value="Female"
+                checked={formData.gender === "Female"}
+                onChange={handleChange}
+                className="form-radio"
+              />
+              <span className="ml-2">Female</span>
+            </label>
+            <label className="inline-flex items-center">
+              <input
+                type="radio"
+                name="gender"
+                value="Other"
+                checked={formData.gender === "Other"}
+                onChange={handleChange}
+                className="form-radio"
+              />
+              <span className="ml-2">Other</span>
+            </label>
+          </div>
         </div>
 
         {/* Location Input */}
-        <div>
-          <label>Location</label>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">Location</label>
           <input
             type="text"
             name="location"
@@ -186,13 +197,14 @@ const SignupPage = () => {
             onChange={handleChange}
             required
             placeholder="Enter your city or country"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
 
         {/* Education Dropdown */}
-        <div>
-          <label>Education</label>
-          <select name="education" value={formData.education} onChange={handleChange}>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">Education</label>
+          <select name="education" value={formData.education} onChange={handleChange} className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             <option value="">Select your education level</option>
             <option value="High School">High School</option>
             <option value="Bachelor's">Bachelors</option>
@@ -202,9 +214,9 @@ const SignupPage = () => {
         </div>
 
         {/* Marital Status Dropdown */}
-        <div>
-          <label>Looking For</label>
-          <select name="maritalStatus" value={formData.maritalStatus} onChange={handleChange}>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">Looking For</label>
+          <select name="maritalStatus" value={formData.maritalStatus} onChange={handleChange} className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             <option value="">Select your status</option>
             <option value="short">Short term relationship</option>
             <option value="long">Long term relationship</option>
@@ -213,82 +225,59 @@ const SignupPage = () => {
         </div>
 
         {/* Bio Textarea */}
-        <div>
-          <label>Tell us about yourself</label>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">Tell us about yourself</label>
           <textarea
             name="bio"
             value={formData.bio}
             onChange={handleChange}
             rows="4"
             placeholder="Write something about yourself..."
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
 
         {/* Interests Checkboxes */}
-        <div>
-          <label>Interests</label>
-          <label>
-            <input
-              type="checkbox"
-              name="interests"
-              value="Music"
-              checked={formData.interests.includes("Music")}
-              onChange={handleChange}
-            />
-            Music
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="interests"
-              value="Sports"
-              checked={formData.interests.includes("Sports")}
-              onChange={handleChange}
-            />
-            Sports
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="interests"
-              value="Travel"
-              checked={formData.interests.includes("Travel")}
-              onChange={handleChange}
-            />
-            Travel
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="interests"
-              value="Gaming"
-              checked={formData.interests.includes("Gaming")}
-              onChange={handleChange}
-            />
-            Gaming
-          </label>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">Interests</label>
+          <div className="flex flex-wrap gap-4">
+            {["Music", "Sports", "Travel", "Gaming"].map((interest) => (
+              <label key={interest} className="inline-flex items-center">
+                <input
+                  type="checkbox"
+                  name="interests"
+                  value={interest}
+                  checked={formData.interests.includes(interest)}
+                  onChange={handleChange}
+                  className="form-checkbox"
+                />
+                <span className="ml-2">{interest}</span>
+              </label>
+            ))}
+          </div>
         </div>
 
         {/* Newsletter Subscription */}
-        <div>
-          <label>
+        <div className="mb-6">
+          <label className="inline-flex items-center">
             <input
               type="checkbox"
               name="newsletter"
               checked={formData.newsletter}
               onChange={handleChange}
+              className="form-checkbox"
             />
-            Subscribe to our dating tips newsletter
+            <span className="ml-2 text-gray-700">Subscribe to our dating tips newsletter</span>
           </label>
         </div>
 
         {/* Buttons */}
-        <div className="flex justify-between">
-          <button type="submit" className="btn-login">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <button type="submit" className="btn-login w-full md:w-auto">
             Sign Up
           </button>
-          <Link href="/">
-              <button type="button" className="btn-cancel">
+          <Link href="/" className="w-full md:w-auto">
+              <button type="button" className="btn-cancel w-full">
                 Cancel
               </button>
         </Link>

@@ -1,6 +1,7 @@
 datasource db {
   provider = "postgresql"  // The provider should match your database (PostgreSQL)
   url      = env("DATABASE_URL")  // Use an environment variable to securely store your DB connection URL
+  directUrl = env("DIRECT_URL")
 }
 
 generator client {

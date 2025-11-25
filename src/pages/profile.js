@@ -100,20 +100,25 @@ const ProfilePage = () => {
         <div className="image-upload-container">
           <h3>Upload Your Photos</h3>
           <UploadImageForm setFile={setFile} />
-          <button onClick={handleUpload} className="upload-button">Upload</button>
-        </div>
-
-        <div className="uploaded-images">
-          <h3>Your Uploaded Images</h3>
-          {images.length === 0 ? (
-            <p>No images uploaded yet.</p>
-          ) : (
-            <ul>
-              {images.map((image, index) => (
-                <li key={index}>{image}</li>
-              ))}
-            </ul>
-          )}
+          <button onClick={handleUpload} className="upload-button" style={{ marginTop: '10px', padding: '8px 16px', backgroundColor: '#6b4eff', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>Upload</button>
+          
+          <div className="uploaded-images" style={{ marginTop: '20px' }}>
+            <h3>Your Uploaded Images</h3>
+            {images.length === 0 ? (
+              <p>No images uploaded yet.</p>
+            ) : (
+              <ul className="image-preview">
+                {images.map((image, index) => (
+                  <li key={index} style={{ listStyle: 'none' }}>
+                    {/* Placeholder for actual image URL since we only have filename here */}
+                    <div style={{ width: '80px', height: '80px', backgroundColor: '#eee', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '8px' }}>
+                        {image}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
         </div>
       </div>
 
