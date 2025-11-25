@@ -233,10 +233,11 @@ export default function InteractiveWaveBackground({
     });
     pathsRef.current = [];
 
-    const baseSpacing = 8;
-    const xGap = baseSpacing + (1 - lineSpacing) * 159; // Range: 8-167
-    const baseYGap = 4;
-    const yGap = baseYGap + (1 - resolution) * 20; // Range: 8-28
+    // Increase gaps for performance (fewer lines/points)
+    const baseSpacing = 32;
+    const xGap = baseSpacing + (1 - lineSpacing) * 159; // Range: 32-191
+    const baseYGap = 16;
+    const yGap = baseYGap + (1 - resolution) * 20; // Range: 16-36
 
     const oWidth = width + 200;
     const oHeight = height + 30;
