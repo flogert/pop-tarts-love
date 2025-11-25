@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const MatchPage = () => {
@@ -52,8 +53,14 @@ const MatchPage = () => {
             {matches.map((match) => (
               <li key={match.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1">
                 <div className="flex flex-col items-center p-6">
-                  <div className="w-32 h-32 mb-4 rounded-full overflow-hidden border-4 border-purple-200">
-                    <img src={`https://randomuser.me/api/portraits/men/${match.id}.jpg`} alt={match.name} className="w-full h-full object-cover" />
+                  <div className="w-32 h-32 mb-4 rounded-full overflow-hidden border-4 border-purple-200 relative">
+                    <Image 
+                      src={`https://randomuser.me/api/portraits/men/${match.id}.jpg`} 
+                      alt={match.name} 
+                      fill
+                      className="object-cover"
+                      unoptimized
+                    />
                   </div>
                   <div className="text-center">
                     <p className="text-xl font-bold text-gray-800">{match.name}</p>
