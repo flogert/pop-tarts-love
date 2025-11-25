@@ -27,7 +27,7 @@ const MatchPage = () => {
             <p className="text-xl text-gray-600">No matches found yet.</p>
             <p className="text-gray-500 mt-2">Check back later for more sweet connections!</p>
             <Link href="/profile">
-                <button className="mt-4 bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-700 transition">
+                <button className="btn-signup mt-4">
                     Go to Profile
                 </button>
             </Link>

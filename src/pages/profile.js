@@ -100,7 +100,7 @@ const ProfilePage = () => {
         <div className="image-upload-container">
           <h3>Upload Your Photos</h3>
           <UploadImageForm setFile={setFile} />
-          <button onClick={handleUpload} className="upload-button" style={{ marginTop: '10px', padding: '8px 16px', backgroundColor: '#6b4eff', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>Upload</button>
+          <button onClick={handleUpload} className="btn-signup" style={{ fontSize: '1rem', padding: '0.5rem 1.5rem', marginTop: '1rem' }}>Upload</button>
           
           <div className="uploaded-images" style={{ marginTop: '20px' }}>
             <h3>Your Uploaded Images</h3>

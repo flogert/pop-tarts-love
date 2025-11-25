@@ -87,7 +87,6 @@ const SignupPage = () => {
             onChange={handleChange}
             required
             placeholder="Enter your email"
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
 
@@ -101,7 +100,6 @@ const SignupPage = () => {
             onChange={handleChange}
             required
             placeholder="Enter your password"
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
 
@@ -115,7 +113,6 @@ const SignupPage = () => {
               onChange={handleChange}
               required
               placeholder="Enter your first name"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
           <div className="w-full md:w-1/2 px-3">
@@ -127,7 +124,6 @@ const SignupPage = () => {
               onChange={handleChange}
               required
               placeholder="Enter your last name"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
         </div>
@@ -143,7 +139,6 @@ const SignupPage = () => {
             required
             min="18"
             placeholder="Enter your age"
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
 
@@ -197,14 +192,13 @@ const SignupPage = () => {
             onChange={handleChange}
             required
             placeholder="Enter your city or country"
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
 
         {/* Education Dropdown */}
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">Education</label>
-          <select name="education" value={formData.education} onChange={handleChange} className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          <select name="education" value={formData.education} onChange={handleChange}>
             <option value="">Select your education level</option>
             <option value="High School">High School</option>
             <option value="Bachelor's">Bachelors</option>
@@ -216,7 +210,7 @@ const SignupPage = () => {
         {/* Marital Status Dropdown */}
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">Looking For</label>
-          <select name="maritalStatus" value={formData.maritalStatus} onChange={handleChange} className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          <select name="maritalStatus" value={formData.maritalStatus} onChange={handleChange}>
             <option value="">Select your status</option>
             <option value="short">Short term relationship</option>
             <option value="long">Long term relationship</option>
@@ -233,7 +227,6 @@ const SignupPage = () => {
             onChange={handleChange}
             rows="4"
             placeholder="Write something about yourself..."
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
 
