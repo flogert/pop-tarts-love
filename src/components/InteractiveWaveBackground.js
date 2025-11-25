@@ -85,6 +85,7 @@ function createNoise2D(seed = 0.5) {
 
 export default function InteractiveWaveBackground({
   strokeColor = "#ffffff",
+  waveColors,
   backgroundColor = "transparent",
   waveSpeed = 0.5,
   waveAmplitude = 0.5,
@@ -189,11 +190,12 @@ export default function InteractiveWaveBackground({
 
   // Stroke color change
   useEffect(() => {
-    pathsRef.current.forEach((path) => {
-      path.setAttribute("stroke", strokeColor);
+    pathsRef.current.forEach((path, i) => {
+      const color = waveColors ? waveColors[i % waveColors.length] : strokeColor;
+      path.setAttribute("stroke", color);
     });
     drawLines();
-  }, [strokeColor]);
+  }, [strokeColor, waveColors]);
 
   // Set SVG size
   const setSize = () => {
@@ -257,7 +259,8 @@ export default function InteractiveWaveBackground({
       // Create SVG path
       const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
       path.setAttribute("fill", "none");
-      path.setAttribute("stroke", strokeColor);
+      const color = waveColors ? waveColors[i % waveColors.length] : strokeColor;
+      path.setAttribute("stroke", color);
       path.setAttribute("stroke-width", "1");
       svgRef.current.appendChild(path);
       pathsRef.current.push(path);

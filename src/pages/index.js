@@ -6,7 +6,7 @@ import InteractiveWaveBackground from '../components/InteractiveWaveBackground';
 const IndexPage = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4 relative overflow-hidden">
-      <InteractiveWaveBackground />
+      <InteractiveWaveBackground waveColors={['#9333ea', '#ec4899']} />
       {/* Main Title */}
       <motion.h1 
         initial={{ opacity: 0, y: -20 }}
