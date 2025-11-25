@@ -69,14 +69,14 @@ const SignupPage = () => {
   const inputClasses = "w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-200";
 
   return (
-    <div className="container">
+    <div className="min-h-screen flex flex-col items-center justify-center p-4 py-12">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className="w-full max-w-lg"
       >
-        <h2 className="mb-6 text-3xl font-bold text-center text-purple-800">Dating Account Signup</h2>
+        <h2 className="mb-6 text-3xl font-bold text-center text-purple-800 font-['Agbalumo']">Dating Account Signup</h2>
 
         {errorMessage && <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">{errorMessage}</div>}
         {successMessage && <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">{successMessage}</div>}

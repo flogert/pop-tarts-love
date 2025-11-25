@@ -83,40 +83,40 @@ const ProfilePage = () => {
     );
 
   return (
-    <div className="profile-container">
-      <h2 className="profile-title">Welcome, {profileData?.firstName || "User"}!</h2>
-      <div className="profile-content">
-        <div className="profile-info">
-          <p><strong>First Name:</strong> {profileData?.firstName || "Not provided"}</p>
-          <p><strong>Last Name:</strong> {profileData?.lastName || "Not provided"}</p>
-          <p><strong>Age:</strong> {profileData?.age || "Not provided"}</p>
-          <p><strong>Location:</strong> {profileData?.location || "Not provided"}</p>
-          <p><strong>Education:</strong> {profileData?.education || "Not provided"}</p>
-          <p><strong>Marital Status:</strong> {profileData?.maritalStatus || "Not provided"}</p>
-          <p><strong>About Me:</strong> {profileData?.bio || "Not provided"}</p>
+    <div className="min-h-screen flex flex-col items-center p-4 pt-12">
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-purple-800 font-['Agbalumo']">Welcome, {profileData?.firstName || "User"}!</h2>
+      <div className="w-full max-w-4xl bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl p-6 md:p-12 flex flex-col md:flex-row gap-8">
+        <div className="flex-1 space-y-4">
+          <p className="text-lg"><strong className="text-purple-700">First Name:</strong> {profileData?.firstName || "Not provided"}</p>
+          <p className="text-lg"><strong className="text-purple-700">Last Name:</strong> {profileData?.lastName || "Not provided"}</p>
+          <p className="text-lg"><strong className="text-purple-700">Age:</strong> {profileData?.age || "Not provided"}</p>
+          <p className="text-lg"><strong className="text-purple-700">Location:</strong> {profileData?.location || "Not provided"}</p>
+          <p className="text-lg"><strong className="text-purple-700">Education:</strong> {profileData?.education || "Not provided"}</p>
+          <p className="text-lg"><strong className="text-purple-700">Marital Status:</strong> {profileData?.maritalStatus || "Not provided"}</p>
+          <p className="text-lg"><strong className="text-purple-700">About Me:</strong> {profileData?.bio || "Not provided"}</p>
         </div>
 
         {/* Image Upload Section */}
-        <div className="image-upload-container">
-          <h3>Upload Your Photos</h3>
+        <div className="flex-1 border-t md:border-t-0 md:border-l border-gray-200 pt-6 md:pt-0 md:pl-8">
+          <h3 className="text-xl font-bold mb-4 text-gray-800">Upload Your Photos</h3>
           <UploadImageForm setFile={setFile} />
           <button 
             onClick={handleUpload} 
-            className="bg-purple-600 text-white font-bold py-2 px-6 rounded-full hover:bg-purple-700 transition-colors mt-4"
+            className="bg-purple-600 text-white font-bold py-2 px-6 rounded-full hover:bg-purple-700 transition-colors mt-4 w-full md:w-auto"
           >
             Upload
           </button>
           
-          <div className="uploaded-images" style={{ marginTop: '20px' }}>
-            <h3>Your Uploaded Images</h3>
+          <div className="mt-8">
+            <h3 className="text-xl font-bold mb-4 text-gray-800">Your Uploaded Images</h3>
             {images.length === 0 ? (
-              <p>No images uploaded yet.</p>
+              <p className="text-gray-500 italic">No images uploaded yet.</p>
             ) : (
-              <ul className="image-preview">
+              <ul className="flex flex-wrap gap-4">
                 {images.map((image, index) => (
-                  <li key={index} style={{ listStyle: 'none' }}>
+                  <li key={index} className="list-none">
                     {/* Placeholder for actual image URL since we only have filename here */}
-                    <div style={{ width: '80px', height: '80px', backgroundColor: '#eee', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '8px' }}>
+                    <div className="w-20 h-20 bg-gray-100 rounded-lg flex items-center justify-center border border-gray-200 text-xs text-gray-500 overflow-hidden p-2 text-center">
                         {image}
                     </div>
                   </li>
@@ -127,12 +127,12 @@ const ProfilePage = () => {
         </div>
       </div>
 
-      <div className="profile-actions flex gap-4 mt-8">
+      <div className="flex gap-4 mt-8 mb-8">
         <Link href="/">
-          <button className="bg-blue-500 text-white font-bold py-2 px-6 rounded-full hover:bg-blue-600 transition-colors">Home</button>
+          <button className="bg-blue-500 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-600 transition-colors shadow-lg">Home</button>
         </Link>
         <Link href="/match">
-          <button className="bg-pink-500 text-white font-bold py-2 px-6 rounded-full hover:bg-pink-600 transition-colors">Match</button>
+          <button className="bg-pink-500 text-white font-bold py-3 px-8 rounded-full hover:bg-pink-600 transition-colors shadow-lg">Match</button>
         </Link>
       </div>
     </div>

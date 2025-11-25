@@ -26,8 +26,8 @@ const MatchPage = () => {
         transition={{ duration: 0.5 }}
         className="w-full max-w-4xl"
       >
-        <h2 className="text-3xl md:text-5xl font-bold text-center mb-8 text-purple-700">
-          Your Matches <span className="block text-xl md:text-2xl text-pink-500 mt-2">Pop Tart Lovers!</span>
+        <h2 className="text-3xl md:text-5xl font-bold text-center mb-8 text-purple-700 font-['Agbalumo']">
+          Your Matches <span className="block text-xl md:text-2xl text-pink-500 mt-2 font-sans">Pop Tart Lovers!</span>
         </h2>
         {matches.length === 0 ? (
           <motion.div 

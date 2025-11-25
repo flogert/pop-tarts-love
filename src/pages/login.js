@@ -28,14 +28,14 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="container">
+    <div className="min-h-screen flex flex-col items-center justify-center p-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className="w-full max-w-md"
       >
-        <h2 className="mb-6 text-3xl font-bold text-center text-purple-800">Welcome Back</h2>
+        <h2 className="mb-6 text-3xl font-bold text-center text-purple-800 font-['Agbalumo']">Welcome Back</h2>
         
         {error && <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">{error}</div>}
 
